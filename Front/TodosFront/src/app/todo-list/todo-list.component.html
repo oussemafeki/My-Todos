@@ -1,0 +1,42 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Todos List</h2>
+    </div>
+    <div class="panel-body">
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date de debut</th>
+            <th scope="col">Date d'echeance</th>
+            <th scope="col">Statut</th>
+            <th scope="col">Action</th>
+
+
+
+          </tr>
+        </thead>
+      
+                <tbody>
+          <tr *ngFor="let todo of todos | async">
+            <td>{{todo.id}}</td>
+            <td>{{todo.titre}}</td>
+            <td>{{todo.description}}</td>
+            <td>{{todo.dateDebut}}</td>
+            <td>{{todo.dateDecheance}}</td>
+            <td>{{todo.Statut}}</td>
+            <td> <button (click)="TodoUpdate(todo.id)" class="btn btn-success" style="margin-left: 10px">Update</button></td>
+
+
+
+
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  
+  </div>

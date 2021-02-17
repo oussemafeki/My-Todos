@@ -5,6 +5,7 @@ import java.util.List;
 import javax.xml.ws.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,11 +20,12 @@ import tn.way.services.ITodoService;
 public class TodoRest {
 	@Autowired
 	ITodoService TodoService ; 
+	@CrossOrigin(origins = "http://localhost:4200")
 	 @GetMapping("/retrieve-all-Todos") 
-	 @ResponseBody 
 	 public List<Todo> getTodos() { 
 		 List<Todo> list = TodoService.retrieveAllTodos(); 
 		 return list; }
+	@CrossOrigin(origins = "http://localhost:4200")
 	 @PutMapping("/modify-Todo") 
 	 @ResponseBody 
 	 public void modifyTodo(@RequestBody Todo Todo) { 
@@ -35,8 +37,8 @@ public class TodoRest {
 			 System.out.print("erreur date d'echeance !");
 		 }
 		  }
+	@CrossOrigin(origins = "http://localhost:4200")
 	 @GetMapping("/retrieve-Todo/{Todo-id}") 
-	 @ResponseBody 
 	 public Todo retrieveTodo(@PathVariable("Todo-id") int TodoId) { 
 		 return TodoService.retrieveTodo(TodoId);  } 
 }

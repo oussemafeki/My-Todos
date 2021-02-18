@@ -11,6 +11,9 @@ import { TodoService } from '../todo.service';
 export class TodoUpdateComponent implements OnInit {
   id: number;
   todo: Todo;
+  minDate = new Date();
+  submitted = false;
+
   constructor(private route: ActivatedRoute,private router: Router,
     private todoService: TodoService) { }
 
@@ -26,9 +29,10 @@ export class TodoUpdateComponent implements OnInit {
   }
   updateTodo() {
     this.todoService.updateTodo( this.todo)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => {console.log(data);
+        this.submitted = true;}, error => console.log(error));
     this.todo = new Todo();
-    this.gotoList();
+    //this.gotoList();
   }
 
   onSubmit() {

@@ -27,7 +27,7 @@
             <td>{{todo.description}}</td>
             <td>{{todo.dateDebut}}</td>
             <td>{{todo.dateDecheance}}</td>
-            <td>{{todo.Statut}}</td>
+            <td>{{todo.statut}}</td>
             <td> <button (click)="TodoUpdate(todo.id)" class="btn btn-success" style="margin-left: 10px">Update</button></td>
 
 
@@ -40,3 +40,5 @@
     </div>
   
   </div>
+
+  <button routerLink="/create" routerLinkActive="active"class="btn btn-info" style="margin-left: 10px">Create a Todo</button>

@@ -1,7 +1,7 @@
-<h3>Update a Todo</h3>
+<h3>Create a Todo</h3>
 <div class="alert alert-success" role="alert" [hidden]="!submitted">
-  You submitted successfully!
-</div>
+    You submitted successfully!
+  </div>
 <div style="width: 400px;">
   <form #f="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -30,7 +30,7 @@
         <label for="name">Date d'echeance</label>
         <br>
         <mat-form-field>
-            <input matInput [matDatepicker]="picker2" [min]="todo.dateDebut" placeholder="Choisir une date " id="dateDecheance"  required [(ngModel)]="todo.dateDecheance" name="dateDecheance">
+            <input matInput [matDatepicker]="picker2" [min]="todo.dateDebut " placeholder="Choisir une date " id="dateDecheance"  required [(ngModel)]="todo.dateDecheance" name="dateDecheance">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2 ></mat-datepicker>
           </mat-form-field>      </div>
@@ -38,7 +38,9 @@
       
     </form>
   </div>
-<br>
+  <br>
 
+ 
+  <br>
 
-<br>
+  

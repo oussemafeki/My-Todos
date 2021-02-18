@@ -19,4 +19,7 @@ export class TodoService {
   updateTodo(Todo: Object): Observable<Object> {
     return this.http.put(`${this.baseUrl}/modify-Todo`, Todo);
   }
+  createTodo(Todo: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/add-Todo`, Todo);
+  }
 }

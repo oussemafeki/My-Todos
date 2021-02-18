@@ -40,4 +40,12 @@ public class TodoService  implements ITodoService{
 		return this.todoRepo.findById(id).get();
 	}
 
+
+
+	@Override
+	public Todo addTodo(Todo t) {
+		l.info("Adding todo with ID: "+t.getId());
+		return todoRepo.save(t);
+	}
+
 }

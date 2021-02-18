@@ -4,6 +4,6 @@ export class Todo {
     description: string;
     dateDebut: Date;
     dateDecheance: Date;
-    statut : Boolean;
+    statut : string;
 
 }

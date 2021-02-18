@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
 
@@ -13,13 +14,14 @@ export class TodoUpdateComponent implements OnInit {
   todo: Todo;
   minDate = new Date();
   submitted = false;
+  statut: string[];
 
   constructor(private route: ActivatedRoute,private router: Router,
     private todoService: TodoService) { }
 
   ngOnInit(): void {
+    this.statut=["Ouverte","Fermée"];
     this.todo = new Todo();
-
     this.id = this.route.snapshot.params['id'];
     this.todoService.getTodo(this.id)
       .subscribe(data => {

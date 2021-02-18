@@ -1,5 +1,6 @@
 package tn.way.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.ws.Response;
@@ -30,8 +31,14 @@ public class TodoRest {
 	 @PutMapping("/modify-Todo") 
 	 @ResponseBody 
 	 public void modifyTodo(@RequestBody Todo Todo) { 
+		Date today = new Date ();
 		 if (Todo.getDateDebut().before(Todo.getDateDecheance()))
-		 {
+		 {				 
+
+			 if (Todo.getDateDecheance().before(today))
+			 {
+				 Todo.setStatut("En retard");
+			 }
 			 TodoService.updateTodo(Todo);  
 		 }
 		 else {
@@ -47,7 +54,7 @@ public class TodoRest {
 	@PostMapping("/add-Todo") 
 	 @ResponseBody 
 	 public Todo addTodo(@RequestBody Todo t) { 
-		t.setStatut(false);
+		t.setStatut("Ouverte");
 		 Todo Todo = TodoService.addTodo(t); 
 		 return Todo ; }
 }

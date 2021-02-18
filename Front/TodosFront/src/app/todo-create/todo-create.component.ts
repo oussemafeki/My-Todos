@@ -24,9 +24,10 @@ export class TodoCreateComponent implements OnInit {
   save() {
     this.todoService.createTodo(this.todo)
       .subscribe(data => {console.log(data) ;
-        this.submitted = true;} 
+        this.submitted = true;
+        this.todo = new Todo();} 
       , error => console.log(error));
-    this.todo = new Todo();
+    
   }
   onSubmit() {
     

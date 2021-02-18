@@ -4,27 +4,13 @@
 </div>
 <div style="width: 400px;">
   <form #f="ngForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Titre</label>
-      <input type="text" class="form-control" id="titre" required [(ngModel)]="todo.titre" name="titre" #i="ngModel" required>
-    </div>
-    <div class="alert alert-danger" *ngIf="i.invalid">
-        Titre est obligatoire 
-      </div>
+  
+   
     <div class="form-group">
       <label for="name">Description</label>
       <input type="text" class="form-control" id="description"  [(ngModel)]="todo.description" name="description" >
     </div>
     
-    <div class="form-group">
-      <label for="name">Date debut</label>
-      <br>
-      <mat-form-field>
-        <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Choisir une date " id="dateDebut"  required [(ngModel)]="todo.dateDebut" name="dateDebut">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker ></mat-datepicker>
-      </mat-form-field>
-    </div>
     
     <div class="form-group">
         <label for="name">Date d'echeance</label>
@@ -34,8 +20,15 @@
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2 ></mat-datepicker>
           </mat-form-field>      </div>
+          <div class="form-group">
+            <select class="form-control"  name="statut"   [(ngModel)]="todo.statut" style="width:400px;">
+              <option *ngFor="let sta of statut " [ngValue]="sta">{{sta}}
+              </option>
+            </select>
+          </div>
       <td> <button (click)="gotoList()" class="btn btn-info" >Back</button> <button type="submit" class="btn btn-success" style="margin-left: 10px" [disabled]="f.invalid">Submit</button> </td>
       
+     
     </form>
   </div>
 <br>

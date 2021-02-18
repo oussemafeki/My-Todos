@@ -6,11 +6,14 @@
   <form #f="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Titre</label>
-      <input type="text" class="form-control" id="titre" required [(ngModel)]="todo.titre" name="titre" #i="ngModel" required>
+      <input type="text" class="form-control" id="titre" required [(ngModel)]="todo.titre" name="titre" #i="ngModel" required pattern="[a-zA-Z ]*">
     </div>
     <div class="alert alert-danger" *ngIf="i.invalid">
-        Titre est obligatoire 
+        <div *ngIf="i.errors.required">Titre est obligatoire</div>
+        <div *ngIf="i.errors.pattern"> Caractères alphabétiques,
+            obligatoire </div>
       </div>
+    
     <div class="form-group">
       <label for="name">Description</label>
       <input type="text" class="form-control" id="description"  [(ngModel)]="todo.description" name="description" >

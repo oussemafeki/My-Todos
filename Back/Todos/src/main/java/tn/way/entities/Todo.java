@@ -17,6 +17,7 @@ public class Todo implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id ;
+	
     @NotEmpty(message = "{NotEmpty}")
 	private String titre ; 
 	private String description ; 
